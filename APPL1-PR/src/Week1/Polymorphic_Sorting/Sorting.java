@@ -37,4 +37,8 @@ public class Sorting {
             list[position] = key;
         }
     }
+
+    static void selectionSort(int[] intList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
