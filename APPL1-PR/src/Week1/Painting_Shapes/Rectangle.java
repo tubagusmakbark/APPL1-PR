@@ -8,11 +8,6 @@ public class Rectangle extends Shape {
         length = r;
         width = s;
     }
-    
-    /**
-     *
-     * @return
-     */
     @Override
     public double area(){
         return length*width;
