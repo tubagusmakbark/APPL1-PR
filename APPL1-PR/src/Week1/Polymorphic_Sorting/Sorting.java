@@ -19,7 +19,6 @@ public class Sorting {
             list[index] = temp;
         }
     }
-
     // -----------------------------------------------------------------
     // Sorts the specified array of objects using the insertion
     // sort algorithm.
@@ -29,15 +28,13 @@ public class Sorting {
             Comparable key = list[index];
             int position = index;
             // Shift larger values to the right
-            while (position > 0 && key.compareTo(list[position - 1]) < 0) {
+            while (position > 0 && key.compareTo(list[position - 1]) > 0) {
                 list[position] = list[position - 1];
                 position--;
             }
-
             list[position] = key;
         }
     }
-
     static void selectionSort(int[] intList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
