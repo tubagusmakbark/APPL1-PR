@@ -1,3 +1,4 @@
+package Week2.Placing_Exception_Handlers;
 
 // ****************************************************************
 // ParseInts.java
@@ -15,8 +16,12 @@ public class ParseInts {
         System.out.println("Enter a line of text");
         Scanner scanLine = new Scanner(scan.nextLine());
         while (scanLine.hasNext()) {
-            val = Integer.parseInt(scanLine.next());
-            sum += val;
+            try {
+                val = Integer.parseInt(scanLine.next());
+                sum += val;
+            } catch (NumberFormatException e) {
+                // TODO: handle exception
+            }
         }
         System.out.println("The sum of the integers on this line is " + sum);
     }
