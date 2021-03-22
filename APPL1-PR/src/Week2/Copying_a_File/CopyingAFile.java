@@ -1,25 +1,27 @@
+package Week2.Copying_a_File;
+
+import java.util.Scanner;
+import java.io.FileNotFoundException;
 import java.io.*;
-import java.util.*;
 
-public class PersonalityTest {
+public class CopyingAFile {
 
-public static void main(String[] args) throws FileNotFoundException {
-
-    boolean isFile = false;
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input file name? ");
-        String fileName = sc.next();
-        File inputFile = new File(fileName);
-
-    while (isFile == false) {    
-        if (inputFile.exists()) {
-            Scanner input = new Scanner(inputFile);
-            isFile = true;
-        }            
-    }
-
-    while(input.hasNextLine()) {
-
+    public static void main(String[] args) {
+        while (true) {
+            Scanner scan = new Scanner(System.in);
+            try {
+                System.out.print("Enter The Name Of File(.txt): ");
+                String filename;
+                filename = new Scanner(System.in).nextLine();
+                File fileObj = new File("src/Week2/Copying_a_File/" + filename + ".txt");
+                Scanner exist = new Scanner(fileObj);
+                while (exist.hasNextLine()) {
+                    System.out.println(exist.nextLine());
+                }
+                break;
+            } catch (FileNotFoundException e) {
+                System.out.print("File Does not exist\n");
+            }
+        }
     }
 }
