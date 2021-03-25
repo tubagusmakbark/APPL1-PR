@@ -1,3 +1,4 @@
+package Week2.A_List_of_Prime_Numbers;
 
 // *****************************************************************
 // Primes.java
@@ -9,6 +10,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Primes {
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Primes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

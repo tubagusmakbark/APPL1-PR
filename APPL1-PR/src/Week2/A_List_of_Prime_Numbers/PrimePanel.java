@@ -1,3 +1,4 @@
+package Week2.A_List_of_Prime_Numbers;
 
 // ****************************************************************
 // PrimePanel.java
@@ -14,6 +15,7 @@ public class PrimePanel extends JPanel {
     private JTextField number;
     private JButton computeButton;
     private JTextArea primeList;
+    private JScrollPane vertical;
 
     // ----------------------------------------------------------
     // Sets up a panel with a heading, a labeled text field
@@ -37,6 +39,10 @@ public class PrimePanel extends JPanel {
         add(primeList);
         setPreferredSize(new Dimension(400, 320));
         setBackground(Color.yellow);
+        // Add ScrollPane
+        vertical = new JScrollPane(primeList);
+        vertical.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(vertical);
     }
 
     // *****************************************************************
@@ -48,38 +54,42 @@ public class PrimePanel extends JPanel {
         // Generates and displays a list of primes when the
         // button is clicked.
         // -----------------------------------------------------------
+        @Override
         public void actionPerformed(ActionEvent event) {
-            String textNum = number.getText();
-            int num = Integer.parseInt(textNum);
-            String ans = "";
-            int count = 0;
-            if (num < 2) {
-                ans = "There no primes less than " + num;
-            } else {
-                ans = " " + 2;
-                count++;
-                for (int i = 3; i <= num; i += 2) {
-                    boolean foundDivisor = false;
-                    int j = 3;
-                    while (j < i && !foundDivisor) {
-                        if (i % j == 0) {
-                            foundDivisor = true;
-                        } else {
-                            j++;
+            try {
+                String textNum = number.getText();
+                int num = Integer.parseInt(textNum);
+                String ans = "";
+                int count = 0;
+                if (num < 2) {
+                    ans = "There no primes less than " + num;
+                } else {
+                    ans = " " + 2;
+                    count++;
+                    for (int i = 3; i <= num; i += 2) {
+                        boolean foundDivisor = false;
+                        int j = 3;
+                        while (j < i && !foundDivisor) {
+                            if (i % j == 0) {
+                                foundDivisor = true;
+                            } else {
+                                j++;
+                            }
                         }
-                    }
-                    // Add i to the list if it is prime
-                    if (j == i) {
-                        ans += " " + i;
-                        count++;
-                        if (count % 10 == 0) {
-                            ans += "\n";
+                        // Add i to the list if it is prime
+                        if (j == i) {
+                            ans += " " + i;
+                            count++;
+                            if (count % 10 == 0) {
+                                ans += "\n";
+                            }
                         }
                     }
                 }
+                primeList.setText(ans);
+            } catch (NumberFormatException n) {
+                primeList.setText(n.getMessage() + " : Not Integer!");
             }
-            primeList.setText(ans);
-
         }
     }
 }
