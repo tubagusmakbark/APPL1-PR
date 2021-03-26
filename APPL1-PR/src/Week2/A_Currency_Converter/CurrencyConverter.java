@@ -1,3 +1,4 @@
+package Week2.A_Currency_Converter;
 
 // ***********************************************************************
 // CurrencyConverter.java
@@ -8,6 +9,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class CurrencyConverter {
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Currency Converter");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
